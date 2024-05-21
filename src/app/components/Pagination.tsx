@@ -9,10 +9,10 @@ type PaginationProps = {
 
 const Pagination: React.FC<PaginationProps> = ({bookmarks, query}) => {
     const path = "/bookmarks";
-    const queryParams = (query === undefined || query === "")? {}: {query: query}
-    const firstPage = { pathname: path, query: { page: 1 }, ...queryParams }
+    const queryParams = (query === undefined || query === "") ? {} : {query: query}
+    const firstPage = { pathname: path, query: { page: 1 , ...queryParams } }
     const previousPage = { pathname: path, query: { page: bookmarks.currentPage - 1, ...queryParams } }
-    const nextPage = { pathname: path, query: { page: bookmarks.currentPage + 1, ...queryParams }}
+    const nextPage = { pathname: path, query: { page: bookmarks.currentPage + 1, ...queryParams } }
     const lastPage = { pathname: path, query: { page: bookmarks.totalPages, ...queryParams } }
 
     return(
