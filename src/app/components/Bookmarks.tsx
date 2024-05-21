@@ -1,9 +1,11 @@
-import { BookmarkType } from '@/types';
+// import { BookmarkType } from '@/types';
+import { BookmarksResponse } from "@/types";
 import React from 'react';
 import Bookmark from '@/app/components/Bookmark';
 
 type Props = {
-    bookmarks: BookmarkType[]
+    // bookmarks: BookmarkType[]
+    bookmarks: BookmarksResponse
 }
 
 const Bookmarks: React.FC<Props> = ({bookmarks}) => {
@@ -11,12 +13,8 @@ const Bookmarks: React.FC<Props> = ({bookmarks}) => {
         <div>
             <h1>Welcome to Bookmarker</h1>
             {
-            bookmarks.map(bookmark => <Bookmark key={bookmark.id} bookmark={bookmark} />)
-            // bookmarks.map(bookmark => {
-            //     return (
-            //         <h2 key={bookmark.id}>{bookmark.title}</h2>
-            //     )
-            // })
+            bookmarks.data.map(bookmark => <Bookmark key={bookmark.id} bookmark={bookmark} />)
+            //bookmarks.map(bookmark => <Bookmark key={bookmark.id} bookmark={bookmark} />)
             }            
         </div>
     );
